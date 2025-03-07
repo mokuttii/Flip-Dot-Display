@@ -89,12 +89,6 @@ These steps will set up your environment to run the scripts provided in this rep
 . /env/bin/activate
 ```
 
-## Usage
-
-**Note**: Before running any of the scripts, you must activate the virtual environment:
-```bash
-. /env/bin/activate
-
 ### Demo
 
 1. **Activate the virtual environment**:
