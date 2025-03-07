@@ -1,7 +1,6 @@
 
 ### CONTROL.md
 
-```markdown
 # Control Instructions
 
 This section explains how to control the Alfa Zeta Flip Dot Display XY5 28x7. The control commands are sent via a serial interface and consist of a specific byte structure.
