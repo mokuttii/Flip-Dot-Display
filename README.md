@@ -11,7 +11,7 @@ This project provides Python code to control the Alfa Zeta Flip Dot Display XY5 
 - [Frame Display](#frame-display)
 - [Installation](#installation)
 - [Usage](#usage)
-
+- [Control Instructions](CONTROL.md)
 
 ## Demo
 
@@ -41,34 +41,53 @@ The `start.py` script reads frames from the `frames` directory and displays them
 
 To set up the environment for this project, follow these steps:
 
-1. **Create and navigate to the `flip` directory**:
+1. **Enable Serial Port and Disable Serial Console**:
+    1. Open the Raspberry Pi configuration tool:
+    ```bash
+    sudo raspi-config
+    ```
+    2. Navigate to `Interfacing Options` and select `Serial`.
+    3. When asked "Would you like a login shell to be accessible over serial?", select `No`.
+    4. When asked "Would you like the serial port hardware to be enabled?", select `Yes`.
+    5. Exit the configuration tool and reboot your Raspberry Pi:
+    ```bash
+    sudo reboot
+    ```
+
+2. **Create and navigate to the `flip` directory**:
     ```bash
     mkdir flip
     cd flip
     ```
 
-2. **Clone the repository into the `flip` directory**:
+3. **Clone the repository into the `flip` directory**:
     ```bash
     git clone https://github.com/yourusername/yourrepository.git
-    cd yourrepository
     ```
 
-3. **Create a virtual environment**:
+4. **Create a virtual environment**:
     ```bash
     python3 -m venv env
     ```
 
-4. **Activate the virtual environment**:
+5. **Activate the virtual environment**:
     ```bash
     . /env/bin/activate
     ```
 
-5. **Install the required dependencies**:
+6. **Install the required dependencies**:
     ```bash
     pip install opencv-python pyserial
     ```
 
 These steps will set up your environment to run the scripts provided in this repository.
+
+## Usage
+
+**Note**: Before running any of the scripts, you must activate the virtual environment:
+```bash
+. /env/bin/activate
+
 
 ## Usage
 
