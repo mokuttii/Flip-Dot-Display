@@ -1,4 +1,4 @@
-# Alfa Zeta Flip Dot Display XY5 28x7 Python
+# Flip Dot Display XY5 28x7 raspi python
 
 [日本語版はこちら](README_JP.md)
 
@@ -54,33 +54,81 @@ To set up the environment for this project, follow these steps:
     sudo reboot
     ```
 
-2. **Create and navigate to the `flip` directory**:
+2. **Set DIP Switches for Baud Rate and Address**:
+
+    ### Baud Rate (3-Pin DIP)
+
+    The communication transfer speed can be set as follows. Following the settings in the picture, the speed will be 9600.
+
+    ```plaintext
+    Value  | DIP Switch Position | Baud Rate
+    ---------------------------------------
+    0      | ↓ ↓ ↓               | None
+    1      | ↑ ↓ ↓               | None
+    2      | ↓ ↑ ↓               | None
+    3      | ↑ ↑ ↓               | 9600
+    4      | ↓ ↓ ↑               | 19200
+    5      | ↑ ↓ ↑               | 38400
+    6      | ↓ ↑ ↑               | 57600
+    7      | ↑ ↑ ↑               | 9600
+    Off    |                      |
+    ```
+
+    ### Address (8-Pin DIP)
+
+    This address ID is used when pushing image data, and each panel listens to the data.
+
+    ```plaintext
+    Pin | Description
+    ------------------------------
+    0-5 | Address in binary code (natural)
+    6   | Magnetization Time: OFF: 500μs (default), ON: 450μs
+    7   | Test Mode: ON/OFF. OFF = Normal Operation
+    ```
+
+    ### Visual Representation of DIP Switch Settings
+
+    ```plaintext
+    3-Pin DIP for Baud Rate:
+    -------------------------
+      1     2     3
+    | ↑ |  ↑ |  ↓ | 9600
+
+    8-Pin DIP for Address:
+    -----------------------
+      1     2     3     4     5     6     7     8
+    | ↑ |  ↑ |  ↑ |  ↑ |  ↑ |  ↓ |  ↓ |  ↓ |
+    ```
+
+3. **Create and navigate to the `flip` directory**:
     ```bash
     mkdir flip
     cd flip
     ```
 
-3. **Clone the repository into the `flip` directory**:
+4. **Clone the repository into the `flip` directory**:
     ```bash
     git clone https://github.com/yourusername/yourrepository.git
+    cd yourrepository
     ```
 
-4. **Create a virtual environment**:
+5. **Create a virtual environment**:
     ```bash
     python3 -m venv env
     ```
 
-5. **Activate the virtual environment**:
+6. **Activate the virtual environment**:
     ```bash
     . /env/bin/activate
     ```
 
-6. **Install the required dependencies**:
+7. **Install the required dependencies**:
     ```bash
     pip install opencv-python pyserial
     ```
 
 These steps will set up your environment to run the scripts provided in this repository.
+
 
 ## Usage
 
@@ -98,5 +146,10 @@ These steps will set up your environment to run the scripts provided in this rep
 
 2. **Run the demo script**:
     ```bash
-    python demo.py
+    python3 demo.py
+    ```
+
+3. **Run the start.py script**:
+    ```bash
+    python3 start.py
     ```
