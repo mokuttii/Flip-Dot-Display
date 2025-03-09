@@ -35,9 +35,8 @@ The `MP4.py` script converts video files into black and white, resizes them to 2
 
 ## Frame Display
 
-`start.py` スクリプトは `frames` ディレクトリからフレームを読み取り、15フレーム毎秒の速度でフリップドットディスプレイに表示します。このデモンストレーションを以下のYouTubeで見ることができます：
+`start.py` スクリプトは `frames` ディレクトリからフレームを読み取り、15フレーム毎秒の速度でフリップドットディスプレイに表示します。このデモンストレーションを [YouTube](https://www.youtube.com/watch?v=qY5p3bfn78A&ab_channel=mokuttii) で見ることができます。
 
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=qY5p3bfn78A&ab_channel=mokuttii" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Installation
 
