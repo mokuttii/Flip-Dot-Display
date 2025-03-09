@@ -35,7 +35,9 @@ The `MP4.py` script converts video files into black and white, resizes them to 2
 
 ## Frame Display
 
-The `start.py` script reads frames from the `frames` directory and displays them on the flip-dot display at 15 frames per second.
+`start.py` スクリプトは `frames` ディレクトリからフレームを読み取り、15フレーム毎秒の速度でフリップドットディスプレイに表示します。このデモンストレーションを以下のYouTubeで見ることができます：
+
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=qY5p3bfn78A&ab_channel=mokuttii" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Installation
 
@@ -55,6 +57,11 @@ To set up the environment for this project, follow these steps:
     ```
 
 2. **Set DIP Switches for Baud Rate and Address**:
+
+
+    ### DIP Switch Settings
+
+    ![DIP Switch Settings](./image/IMG_1.jpg)
 
     ### Baud Rate (3-Pin DIP)
 
@@ -97,7 +104,7 @@ To set up the environment for this project, follow these steps:
     8-Pin DIP for Address:
     -----------------------
       1     2     3     4     5     6     7     8
-    | ↑ |  ↑ |  ↑ |  ↑ |  ↑ |  ↓ |  ↓ |  ↓ |
+    | ↑ |  ↓ |  ↓ |  ↓ |  ↓ |  ↓ |  ↓ |  ↓ |
     ```
 
 3. **Create and navigate to the `flip` directory**:
