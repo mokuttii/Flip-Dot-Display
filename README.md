@@ -35,7 +35,7 @@ The `MP4.py` script converts video files into black and white, resizes them to 2
 
 ## Frame Display
 
-`start.py` スクリプトは `frames` ディレクトリからフレームを読み取り、15フレーム毎秒の速度でフリップドットディスプレイに表示します。このデモンストレーションを [YouTube](https://www.youtube.com/watch?v=qY5p3bfn78A&ab_channel=mokuttii) で見ることができます。
+The `start.py` script reads frames from the `frames` directory and displays them on the flip-dot display at 15 frames per second. You can watch a demonstration of this on [YouTube](https://www.youtube.com/watch?v=qY5p3bfn78A&ab_channel=mokuttii).
 
 
 ## Installation
