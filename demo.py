@@ -1,7 +1,6 @@
 import serial
 import time
 
-# 7x28のドットマトリクスを定義
 #mokutti
 matrix = [
     "0000000000000000000000000000",
@@ -13,7 +12,6 @@ matrix = [
     "0000000000000000000000000000"
 ]
 
-# 7x28のドットマトリクスを定義
 #matrix = [
 #    "0000000000000000000000000000",
 #    "0000000000000000000000000000",
@@ -24,7 +22,6 @@ matrix = [
 #    "0000000000000000000000000000"
 #]
 
-# 7x28のマトリクスをflipdotディスプレイに送信する関数
 def send_to_flipdot(matrix):
     data_bytes = bytearray()
     for col in range(28):
@@ -39,7 +36,6 @@ def send_to_flipdot(matrix):
     with serial.Serial("/dev/serial0", 9600) as srl:
         srl.write(transmission)
 
-# 初めに全てのドットを消灯するデータ
 all_dark = bytearray([
     0x80,  # ヘッダー
     0x83,  # 28バイト、リフレッシュ
@@ -51,9 +47,7 @@ all_dark = bytearray([
     0x8F # EOT
 ])
 
-# シリアルポートを開き、全てのドットを消灯
 with serial.Serial("/dev/serial0", 9600) as srl:
     srl.write(all_dark)
     time.sleep(1)
-    # パターンを送信
     send_to_flipdot(matrix)

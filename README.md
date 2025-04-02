@@ -1,6 +1,6 @@
 # Flip Dot Display XY5 28x7 raspi python
 
-[日本語版はこちら](README_JP.md)
+[日本語版はこちら](https://qiita.com/mokuro916/items/a1196fa752f3434eaa5e)
 
 This project provides Python code to control the Alfa Zeta Flip Dot Display XY5 28x7 using a Raspberry Pi 4B and RASPI HAT. The `frames` directory includes demo frames and the original video file `V.mp4` used to generate these frames. There are three main functionalities included in this directory:
 
@@ -10,8 +10,9 @@ This project provides Python code to control the Alfa Zeta Flip Dot Display XY5 
 - [MP4 Conversion](#mp4-conversion)
 - [Frame Display](#frame-display)
 - [Installation](#installation)
-- [Usage](#usage)
-- [Control Instructions](CONTROL.md)
+- [DIP Switch Settings](#DIP-Switch-Settings)
+- [Sending Data to the Flipdot Display](#sending-data-to-the-flipdot-display)
+- [Control Instructions](#control-instructions)
 
 ## Demo
 
@@ -35,7 +36,7 @@ The `MP4.py` script converts video files into black and white, resizes them to 2
 
 ## Frame Display
 
-The `start.py` script reads frames from the `frames` directory and displays them on the flip-dot display at 15 frames per second. You can watch a demonstration of this on [YouTube](https://www.youtube.com/watch?v=qY5p3bfn78A&ab_channel=mokuttii).
+The `start.py` script reads frames from the `frames` directory and displays them on the flip-dot display at 15 frames per second. You can watch a demonstration of this on YouTube(https://www.youtube.com/watch?v=qY5p3bfn78A&ab_channel=mokuttii).
 
 
 ## Installation
@@ -55,93 +56,32 @@ To set up the environment for this project, follow these steps:
     sudo reboot
     ```
 
-2. **Set DIP Switches for Baud Rate and Address**:
-
-
-    ### DIP Switch Settings
-
-    ![DIP Switch Settings](./image/IMG_1.jpg)
-
-    ### Baud Rate (3-Pin DIP)
-
-    The communication transfer speed can be set as follows. Following the settings in the picture, the speed will be 9600.
-
-    ```plaintext
-    Value  | DIP Switch Position | Baud Rate
-    ---------------------------------------
-    0      | ↓ ↓ ↓               | None
-    1      | ↑ ↓ ↓               | None
-    2      | ↓ ↑ ↓               | None
-    3      | ↑ ↑ ↓               | 9600
-    4      | ↓ ↓ ↑               | 19200
-    5      | ↑ ↓ ↑               | 38400
-    6      | ↓ ↑ ↑               | 57600
-    7      | ↑ ↑ ↑               | 9600
-    Off    |                      |
-    ```
-
-    ### Address (8-Pin DIP)
-
-    This address ID is used when pushing image data, and each panel listens to the data.
-
-    ```plaintext
-    Pin | Description
-    ------------------------------
-    0-5 | Address in binary code (natural)
-    6   | Magnetization Time: OFF: 500μs (default), ON: 450μs
-    7   | Test Mode: ON/OFF. OFF = Normal Operation
-    ```
-
-    ### Visual Representation of DIP Switch Settings
-
-    ```plaintext
-    3-Pin DIP for Baud Rate:
-    -------------------------
-      1     2     3
-    | ↑ |  ↑ |  ↓ | 9600
-
-    8-Pin DIP for Address:
-    -----------------------
-      1     2     3     4     5     6     7     8
-    | ↑ |  ↓ |  ↓ |  ↓ |  ↓ |  ↓ |  ↓ |  ↓ |
-    ```
-
-3. **Create and navigate to the `flip` directory**:
+2. **Create and navigate to the `flip` directory**:
     ```bash
     mkdir flip
     cd flip
     ```
 
-4. **Clone the repository into the `flip` directory**:
+3. **Clone the repository into the `flip` directory**:
     ```bash
-    git clone https://github.com/yourusername/yourrepository.git
-    cd yourrepository
+    git clone https://github.com/mokuttii/Flip-Dot-Display
+    cd flip
     ```
 
-5. **Create a virtual environment**:
+4. **Create a virtual environment**:
     ```bash
     python3 -m venv env
     ```
 
-6. **Activate the virtual environment**:
+5. **Activate the virtual environment**:
     ```bash
     . /env/bin/activate
     ```
 
-7. **Install the required dependencies**:
+6. **Install the required dependencies**:
     ```bash
     pip install opencv-python pyserial
     ```
-
-These steps will set up your environment to run the scripts provided in this repository.
-
-
-## Usage
-
-**Note**: Before running any of the scripts, you must activate the virtual environment:
-```bash
-. /env/bin/activate
-```
 
 ### Demo
 
@@ -159,3 +99,86 @@ These steps will set up your environment to run the scripts provided in this rep
     ```bash
     python3 start.py
     ```
+
+## DIP Switch Settings
+
+    ### DIP Switch Settings
+
+    ![DIP Switch Settings](./image/IMG_1.jpg)
+
+    ### 3-Pin DIP for Baud Rate
+
+    The communication transfer speed can be set as follows. Following the settings in the picture, the speed will be 9600.
+
+    ```plaintext
+    DIP Switch Position | Baud Rate
+    -------------------------------
+     ↓ ↓ ↓              | None
+     ↑ ↓ ↓              | None
+     ↓ ↑ ↓              | None
+     ↑ ↑ ↓              | 9600
+     ↓ ↓ ↑              | 19200
+     ↑ ↓ ↑              | 38400
+     ↓ ↑ ↑              | 57600
+     ↑ ↑ ↑              | 9600
+    ```
+
+    ### 8-Pin DIP for Address
+
+    This address ID is used when pushing image data, and each panel listens to the data.
+
+    ```plaintext
+    Pin | Description
+    ------------------------------
+    1-6 | Address in binary code (natural)
+    7   | Magnetization Time: OFF: 500μs (default), ON: 450μs
+    8   | Test Mode: ON/OFF. OFF = Normal Operation
+    ```
+
+## Sending Data to the Flipdot Display
+
+To transmit data to the Flipdot Display, an RS-485 interface is required. This can be achieved using either a USB-to-RS-485 converter or an RS-485 HAT (Hardware Attached on Top) for the Raspberry Pi.
+
+### Example Setup:
+The following setup uses an RS-485 HAT for seamless integration:
+![RS-485 HAT Example](image/IMG_2.png)
+
+1. Attach the RS-485 HAT to the Raspberry Pi's GPIO pins.
+2. Connect the RS-485 output pins to the Flipdot Display's input terminals.
+3. Ensure the DIP switch settings match the communication requirements.
+4. Provide a 24V power supply to the display.
+
+This setup enables smooth data transmission from the Raspberry Pi to the Flipdot Display using RS-485 protocol.
+
+## Control Instructions
+To operate the Alfa Zeta Flip Dot Display XY5 28x7, send serial commands with a structured byte array:
+
+### Command Structure
+
+The command to control the display is structured as follows:
+
+```python
+all_dark = bytearray([
+    0x80,  # Header
+    0x83,  # 28 bytes, refresh
+    0xFF,  # Address
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, # 28 bytes of data
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+    0x8F # End of Transmission (EOT)
+])
+```
+
+- **0x80**: Header byte
+- **0x83**: 28 bytes, refresh
+- **0xFF**: Address byte
+- **0x00 to 0x7F**: 28 bytes of data
+- **0x8F**: End of Transmission (EOT)
+
+### Byte Explanation
+
+- **0x00 to 0x7F**: These bytes represent the 28 columns of the 7x28 grid. Each column is represented by a hexadecimal value, with a maximum value of 0x7F (127 in decimal). This value corresponds to the 7 bits of data for that column, with each bit representing the state (on or off) of a dot.
+
+For example, the binary value `1111111` translates to the hexadecimal value `0x7F`, indicating that all seven dots in the column should be on.
+
