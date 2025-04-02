@@ -102,38 +102,38 @@ To set up the environment for this project, follow these steps:
 
 ## DIP Switch Settings
 
-    ### DIP Switch Settings
+### DIP Switch Settings
 
-    ![DIP Switch Settings](./image/IMG_1.jpg)
+![DIP Switch Settings](./image/IMG_1.jpg)
 
-    ### 3-Pin DIP for Baud Rate
+### 3-Pin DIP for Baud Rate
 
-    The communication transfer speed can be set as follows. Following the settings in the picture, the speed will be 9600.
+The communication transfer speed can be set as follows. Following the settings in the picture, the speed will be 9600.
 
-    ```plaintext
-    DIP Switch Position | Baud Rate
-    -------------------------------
-     ↓ ↓ ↓              | None
-     ↑ ↓ ↓              | None
-     ↓ ↑ ↓              | None
-     ↑ ↑ ↓              | 9600
-     ↓ ↓ ↑              | 19200
-     ↑ ↓ ↑              | 38400
-     ↓ ↑ ↑              | 57600
-     ↑ ↑ ↑              | 9600
-    ```
+```plaintext
+DIP Switch Position| Baud Rate
+-------------------------------
+↓ ↓ ↓              | None
+↑ ↓ ↓              | None
+↓ ↑ ↓              | None
+↑ ↑ ↓              | 9600
+↓ ↓ ↑              | 19200
+↑ ↓ ↑              | 38400
+↓ ↑ ↑              | 57600
+↑ ↑ ↑              | 9600
+```
 
-    ### 8-Pin DIP for Address
+### 8-Pin DIP for Address
 
-    This address ID is used when pushing image data, and each panel listens to the data.
+This address ID is used when pushing image data, and each panel listens to the data.
 
-    ```plaintext
-    Pin | Description
-    ------------------------------
-    1-6 | Address in binary code (natural)
-    7   | Magnetization Time: OFF: 500μs (default), ON: 450μs
-    8   | Test Mode: ON/OFF. OFF = Normal Operation
-    ```
+```plaintext
+Pin | Description
+------------------------------
+1-6 | Address in binary code (natural)
+7   | Magnetization Time: OFF: 500μs (default), ON: 450μs
+8   | Test Mode: ON/OFF. OFF = Normal Operation
+```
 
 ## Sending Data to the Flipdot Display
 
