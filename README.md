@@ -65,7 +65,7 @@ To set up the environment for this project, follow these steps:
 3. **Clone the repository into the `flip` directory**:
     ```bash
     git clone https://github.com/mokuttii/Flip-Dot-Display
-    cd flip
+    cd Flip-Dot-Display
     ```
 
 4. **Create a virtual environment**:
