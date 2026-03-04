@@ -56,7 +56,7 @@ To set up the environment for this project, follow these steps:
     sudo reboot
     ```
 
-2. **Clone the repository into the `flip` directory**:
+2. **Clone this repository**:
     ```bash
     git clone https://github.com/mokuttii/Flip-Dot-Display
     cd Flip-Dot-Display
